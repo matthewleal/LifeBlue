@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeBlue", "LifeBlue\LifeBlue.csproj", "{89131D56-5876-4543-990B-2A4CCC1C5B80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeBlue.Console", "LifeBlue\LifeBlue.Console.csproj", "{89131D56-5876-4543-990B-2A4CCC1C5B80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeBlue.Tests", "LifeBlue.Tests\LifeBlue.Tests.csproj", "{407761B0-A2D2-44FC-A342-443BE90A785D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeBlue.Tests", "LifeBlue.Tests\LifeBlue.Tests.csproj", "{407761B0-A2D2-44FC-A342-443BE90A785D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeBlue.Api", "LifeBlue.Api\LifeBlue.Api.csproj", "{FC001B13-5AE3-40CB-97A7-FF708E666603}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeBlue.Core", "LifeBlue.Core\LifeBlue.Core.csproj", "{961E76CC-AC6E-421F-89FB-1919E4B5CBC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeBlue.Dal", "LifeBlue.Dal\LifeBlue.Dal.csproj", "{5B201C7B-9BBF-46B7-AC5C-E3C363855F4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{407761B0-A2D2-44FC-A342-443BE90A785D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{407761B0-A2D2-44FC-A342-443BE90A785D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{407761B0-A2D2-44FC-A342-443BE90A785D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC001B13-5AE3-40CB-97A7-FF708E666603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC001B13-5AE3-40CB-97A7-FF708E666603}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC001B13-5AE3-40CB-97A7-FF708E666603}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC001B13-5AE3-40CB-97A7-FF708E666603}.Release|Any CPU.Build.0 = Release|Any CPU
+		{961E76CC-AC6E-421F-89FB-1919E4B5CBC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{961E76CC-AC6E-421F-89FB-1919E4B5CBC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{961E76CC-AC6E-421F-89FB-1919E4B5CBC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{961E76CC-AC6E-421F-89FB-1919E4B5CBC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B201C7B-9BBF-46B7-AC5C-E3C363855F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B201C7B-9BBF-46B7-AC5C-E3C363855F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B201C7B-9BBF-46B7-AC5C-E3C363855F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B201C7B-9BBF-46B7-AC5C-E3C363855F4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
