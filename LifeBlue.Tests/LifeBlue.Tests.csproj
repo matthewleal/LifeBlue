@@ -23,7 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LifeBlue\LifeBlue.csproj" />
+    <ProjectReference Include="..\LifeBlue.Api\LifeBlue.Api.csproj" />
+    <ProjectReference Include="..\LifeBlue.Core\LifeBlue.Core.csproj" />
+    <ProjectReference Include="..\LifeBlue\LifeBlue.Console.csproj" />
   </ItemGroup>
 
 </Project>
