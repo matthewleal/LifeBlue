@@ -23,27 +23,42 @@ namespace LifeBlue.Core.Services
             _repository = repository;
         }
 
-        public async Task<VisitorInformation> GetVisitorInformationAsync(int id)
+        public async Task<VisitorResponse> GetVisitorInformationAsync(int id)
         {
             var visitorInfo = await _repository.VisitorInformationRepository.Get(id);
 
-            return visitorInfo;
+            var errors = new List<string>();
+
+            if (visitorInfo == null)
+                errors.Add($"Visitor Information not found for Id {id}");
+
+            return CreateVisitorResponse(visitorInfo, errors);
         }
 
-        public async Task<VisitorInformation> SaveVisitorInformation(VisitorRequest request)
+        public async Task<VisitorResponse> SaveVisitorInformation(VisitorRequest request)
         {
             var visitorInfo = _mapper.Map<VisitorInformation>(request);
             MapBudget(visitorInfo, request);
 
-            await _repository.VisitorInformationRepository.Add(visitorInfo);
+            var errors = new List<string>();
 
-            await _repository.Save();
+            if (HasLowAndHighBudget(visitorInfo))
+            {
+                await _repository.VisitorInformationRepository.Add(visitorInfo);
 
-            return visitorInfo;
+                await _repository.Save();
+            }
+            else
+            {
+                errors = new List<string> { $"Budget value of {request.Budget} could not be mapped to a lower and higher value" };
+                visitorInfo.Id = -1;
+            }
+
+            return CreateVisitorResponse(visitorInfo, errors);
 
         }
 
-        private void MapBudget(VisitorInformation visitorInfo, VisitorRequest request)
+        private static void MapBudget(VisitorInformation visitorInfo, VisitorRequest request)
         {
             var splitBudget = request.Budget.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
@@ -51,14 +66,31 @@ namespace LifeBlue.Core.Services
 
             foreach (var budget in splitBudget)
             {
-                if(int.TryParse(budget, out int intBudget))
+                if (int.TryParse(budget, out var intBudget))
                     intBudgetList.Add(intBudget);
             }
 
             _ = intBudgetList.OrderBy(x => x);
 
+            if (intBudgetList.Count != 2) return;
+
             visitorInfo.LowBudget = intBudgetList[0];
             visitorInfo.HighBudget = intBudgetList[1];
+
+        }
+
+        private VisitorResponse CreateVisitorResponse(VisitorInformation visitorInfo, IEnumerable<string>? errors)
+        {
+            return new VisitorResponse
+            {
+                VisitorInformation = visitorInfo,
+                Errors = errors
+            };
+        }
+
+        private static bool HasLowAndHighBudget(VisitorInformation visitorInfo)
+        {
+            return visitorInfo is { LowBudget: > 0, HighBudget: > 0 };
         }
     }
 }

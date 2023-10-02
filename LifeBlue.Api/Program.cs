@@ -1,4 +1,4 @@
-using LifeBlue.Api.MIddleware;
+using LifeBlue.Api.Middleware;
 using LifeBlue.Api.Profiles;
 using LifeBlue.Core.Interfaces;
 using LifeBlue.Core.Services;
