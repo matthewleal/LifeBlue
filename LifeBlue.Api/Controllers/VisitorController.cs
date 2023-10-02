@@ -39,6 +39,5 @@ namespace LifeBlue.Api.Controllers
             return result.VisitorInformation.Id < 1 ? BadRequest(result) :
                 CreatedAtAction(nameof(GetVisitorInformation), new {id = result.VisitorInformation.Id}, result);
         }
-
     }
 }
