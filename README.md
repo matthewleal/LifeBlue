@@ -16,6 +16,7 @@ LifeBlue Non PHP Interview Code
   - Phone - varchar(50), not null
   - LowBudget - int, not null
   - HighBudget - int, not null
+  - CreateDate - int, default is GETUTCDATE()
  
 ## Payload Information
 ### Visitor Controller
