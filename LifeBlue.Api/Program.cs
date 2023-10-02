@@ -8,18 +8,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connection = string.Empty;
 var azureSqlCs = "SQLCONNSTR_LIFEBLUE";
-
-if (builder.Environment.IsDevelopment())
-{
-    builder.Configuration.AddEnvironmentVariables().AddJsonFile("appsettings.Development.json");
-    connection = builder.Configuration.GetConnectionString(azureSqlCs);
-}
-else
-{
-    connection = Environment.GetEnvironmentVariable(azureSqlCs);
-}
+var connection = builder.Configuration.GetConnectionString(azureSqlCs);
 
 builder.Services.AddDbContext<LifeBlueContext>(options => options.UseSqlServer(connection));
 
