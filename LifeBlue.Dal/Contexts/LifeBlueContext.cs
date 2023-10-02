@@ -18,6 +18,6 @@ namespace LifeBlue.Dal.Contexts
         {
         }
 
-        public DbSet<VisitorInformation> VisitorInformations { get; set; }
+        public DbSet<VisitorInformation> VisitorInformation { get; set; }
     }
 }

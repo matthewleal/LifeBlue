@@ -25,7 +25,7 @@ namespace LifeBlue.Api.Controllers
         {
             var visitorInfo = await _vistorInfoService.GetVisitorInformationAsync(id);
 
-            return visitorInfo == null ? NotFound() : Ok(visitorInfo);
+            return visitorInfo == null ? NotFound(visitorInfo) : Ok(visitorInfo);
         }
 
         [HttpPost("Save")]
@@ -36,8 +36,8 @@ namespace LifeBlue.Api.Controllers
         {
             var result = await _vistorInfoService.SaveVisitorInformation(request);
 
-            return result.Id < 1 ? BadRequest() :
-                CreatedAtAction(nameof(GetVisitorInformation), new {id = result.Id}, result);
+            return result.VisitorInformation.Id < 1 ? BadRequest(result) :
+                CreatedAtAction(nameof(GetVisitorInformation), new {id = result.VisitorInformation.Id}, result);
         }
 
     }

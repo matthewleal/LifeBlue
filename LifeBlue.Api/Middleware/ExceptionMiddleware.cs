@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using LifeBlue.Core.Constants;
 
-namespace LifeBlue.Api.MIddleware
+namespace LifeBlue.Api.Middleware
 {
     public class ExceptionMiddleware
     {

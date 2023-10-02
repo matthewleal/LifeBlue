@@ -10,7 +10,7 @@ namespace LifeBlue.Core.Interfaces
 {
     public interface IVistorInfoService
     {
-        public Task<VisitorInformation> GetVisitorInformationAsync(int id);
-        public Task<VisitorInformation> SaveVisitorInformation(VisitorRequest request);
+        public Task<VisitorResponse> GetVisitorInformationAsync(int id);
+        public Task<VisitorResponse> SaveVisitorInformation(VisitorRequest request);
     }
 }
