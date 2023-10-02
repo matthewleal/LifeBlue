@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 var connection = string.Empty;
-var azureSqlCs = "AZURE_SQL_CONNECTIONSTRING";
+var azureSqlCs = "SQLCONNSTR_LIFEBLUE";
 
 if (builder.Environment.IsDevelopment())
 {
